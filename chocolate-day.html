@@ -1,0 +1,325 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Chocolate Day ❤️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets-chocolate-day/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets-chocolate-day/css/noscript.css" /></noscript>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: radial-gradient(circle at top, #ffccd5, #fff1f3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Centered top header */
+        #header {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        #header h1 {
+            margin: 0;
+            font-size: 28px;
+            line-height: 1.2;
+        }
+
+        #header h1 a {
+            text-decoration: none;
+            color: #7a1c2f;
+        }
+
+        #header h1 span {
+            display: block;
+            font-size: 18px;
+            color: #c9184a;
+        }
+
+        /* Wheel game scoped styles */
+        #chocolate-game {
+            padding:50px 0;
+            background:#fff1f3;
+            text-align:center;
+        }
+
+        .wheel-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 20px auto;
+        }
+
+        canvas { border-radius: 50%; }
+
+        /* Arrow */
+        .arrow-line {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 3px;
+            height: 120px;
+            background: #e63946;
+            transform: translateX(-50%) translateY(-100%);
+            z-index: 10;
+        }
+
+        .arrow-head {
+            position: absolute;
+            top: -24px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 24px solid #e63946;
+            z-index: 11;
+        }
+
+        /* Spin button */
+        #chocolate-game button {
+            margin-top: 12px;
+            padding: 6px 18px;
+            font-size: 13px;
+            border: none;
+            border-radius: 22px;
+            background: linear-gradient(135deg, #ff4d6d, #ff758f);
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        /* Popup */
+        .popup-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .popup {
+            background: white;
+            padding: 25px;
+            border-radius: 25px;
+            text-align: center;
+            width: 280px;
+            animation: popIn 0.5s ease;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .popup h2 { color: #c9184a; margin-bottom: 10px; font-size: 18px; }
+        .popup .result { font-size: 16px; margin: 10px 0; color: #4a1c2f; }
+
+        .popup button {
+            margin-top: 12px;
+            font-size: 13px;
+            padding: 6px 16px;
+            background: #e63946;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes popIn { from { transform: scale(0.5); opacity:0;} to { transform: scale(1); opacity:1; } }
+
+        /* Falling emojis/confetti */
+        .fall {
+            position: fixed;
+            top: -40px;
+            font-size: 18px;
+            animation: fallDown linear forwards;
+            z-index: 1;
+        }
+        .confetti {
+            width: 5px;
+            height: 10px;
+            display: inline-block;
+        }
+        @keyframes fallDown {
+            to { transform: translateY(120vh) rotate(720deg); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="index is-preload">
+<div id="page-wrapper">
+
+<!-- Header -->
+<header id="header" class="alt">
+    <h1 id="logo"><a href="#">Chocolate Day <span>For You 💕</span></a></h1>
+</header>
+
+<!-- Banner -->
+<section id="banner">
+    <div class="inner">
+        <header>
+            <h2>Happy Chocolate Day 🍫💖</h2>
+        </header>
+        <p>Because love is sweet,<br>but chocolate makes it sweeter 😘</p>
+    </div>
+</section>
+
+<!-- Main -->
+<article id="main">
+    <header class="special container">
+        <span class="icon solid fa-heart"></span>
+        <h2>A sweet surprise<br>made just for you 💝</h2>
+        <p>Let’s play a tiny game<br>and win something delicious 🍫</p>
+    </header>
+</article>
+
+<!-- CTA -->
+<section id="cta">
+    <header>
+        <h2>Let’s get you a <strong>chocolate 🍫</strong></h2>
+        <p>You wanna play a game? 💕</p>
+    </header>
+    <footer>
+        <ul class="buttons">
+            <li><a href="#chocolate-game" class="button primary scrolly">Play game to get chocolate 🍫</a></li>
+        </ul>
+    </footer>
+</section>
+
+<!-- CHOCOLATE WHEEL GAME -->
+<section id="chocolate-game">
+    <h2 style="color:#7a1c2f;">Spin the Wheel, My Love 💖</h2>
+    <div class="wheel-container">
+        <div class="arrow-line"><div class="arrow-head"></div></div>
+        <canvas id="wheel" width="300" height="300"></canvas>
+    </div>
+    <button onclick="spinWheel()">Spin the Wheel 💕</button>
+
+    <div class="popup-overlay" id="popup">
+        <div class="popup">
+            <h2 id="popupTitle"></h2>
+            <div class="result" id="popupResult"></div>
+            <button id="popupBtn" onclick="closePopup()"></button>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer id="footer">
+    <ul class="copyright">
+        <li>Made with ❤️ just for you</li>
+    </ul>
+</footer>
+
+</div>
+
+<!-- JS -->
+<script>
+const canvas = document.getElementById("wheel");
+const ctx = canvas.getContext("2d");
+const popup = document.getElementById("popup");
+const popupTitle = document.getElementById("popupTitle");
+const popupResult = document.getElementById("popupResult");
+const popupBtn = document.getElementById("popupBtn");
+
+const items = ["Dairy Milk 🍫","KitKat 🍫","Ferrero Rocher 💝","Snickers 🍫",
+               "Five Star ⭐","Perk 😋","Munch 💕","Spin Again 🔄"];
+const colors = ["#ffadad","#ffd6a5","#fdffb6","#caffbf","#9bf6ff","#a0c4ff","#bdb2ff","#ffc6ff"];
+const totalSlices = items.length;
+const sliceAngle = (2 * Math.PI) / totalSlices;
+let currentRotation = 0, spinCount = 0, fallInterval = null;
+
+function drawWheel(rotation=0){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    for(let i=0;i<totalSlices;i++){
+        const angle = i*sliceAngle + rotation;
+        ctx.beginPath();
+        ctx.moveTo(150,150);
+        ctx.arc(150,150,150,angle,angle+sliceAngle);
+        ctx.fillStyle = colors[i]; ctx.fill(); ctx.stroke();
+        ctx.save();
+        ctx.translate(150,150); ctx.rotate(angle+sliceAngle/2);
+        ctx.textAlign = "right"; ctx.font="13px Arial"; ctx.fillStyle="#333";
+        ctx.fillText(items[i],120,8);
+        ctx.restore();
+    }
+}
+drawWheel();
+
+function spinWheel(){
+    spinCount++; stopFalling();
+    let targetIndex = spinCount===1 ? items.findIndex(i=>i.includes("Spin Again")) :
+                                       items.findIndex(i=>i.includes("Dairy Milk"));
+    const baseAngle = targetIndex*sliceAngle + sliceAngle/2;
+    const fullSpins = 8 + Math.floor(Math.random()*3);
+    const targetRotation = (2*Math.PI*fullSpins)+(Math.PI/2 + Math.PI) - baseAngle;
+    const startRotation = currentRotation;
+    const startTime = performance.now();
+    const duration = 4000;
+
+    function animate(t){
+        const p=Math.min((t-startTime)/duration,1);
+        const ease=1-Math.pow(1-p,3);
+        currentRotation = startRotation + (targetRotation-startRotation)*ease;
+        drawWheel(currentRotation);
+        if(p<1) requestAnimationFrame(animate);
+        else showPopup();
+    }
+    requestAnimationFrame(animate);
+}
+
+function showPopup(){
+    popup.style.display="flex";
+    if(spinCount===1){
+        popupTitle.innerText="Oops 😄";
+        popupResult.innerHTML=`It says <strong>Spin Again 🔄</strong>`;
+        popupBtn.innerText="Spin Again 😘";
+    } else {
+        popupTitle.innerText="Yayyy 💝";
+        popupResult.innerHTML=`You won <strong>Dairy Milk 🍫</strong><br>
+            Your chocolate is waiting in the <strong>drawer of the side table 💕</strong>`;
+        popupBtn.innerText="Yay! I’ll get it 😘";
+        startFalling();
+    }
+}
+
+function closePopup(){ popup.style.display="none"; stopFalling(); }
+
+function startFalling(){ fallInterval=setInterval(()=>{ for(let i=0;i<4;i++) createFallItem(); },300); }
+function stopFalling(){ clearInterval(fallInterval); document.querySelectorAll(".fall").forEach(e=>e.remove()); }
+function createFallItem(){
+    const el=document.createElement("div"); el.className="fall";
+    if(Math.random()>0.5) el.innerText = ["🍫","🍬"][Math.floor(Math.random()*2)];
+    else { el.classList.add("confetti"); el.style.background=`hsl(${Math.random()*360},100%,60%)`; }
+    el.style.left=Math.random()*100+"vw";
+    el.style.animationDuration=(3+Math.random()*3)+"s";
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),6000);
+}
+</script>
+
+<script src="assets-chocolate-day/js/jquery.min.js"></script>
+<script src="assets-chocolate-day/js/jquery.dropotron.min.js"></script>
+<script src="assets-chocolate-day/js/jquery.scrolly.min.js"></script>
+<script src="assets-chocolate-day/js/jquery.scrollex.min.js"></script>
+<script src="assets-chocolate-day/js/browser.min.js"></script>
+<script src="assets-chocolate-day/js/breakpoints.min.js"></script>
+<script src="assets-chocolate-day/js/util.js"></script>
+<script src="assets-chocolate-day/js/main.js"></script>
+</body>
+</html>

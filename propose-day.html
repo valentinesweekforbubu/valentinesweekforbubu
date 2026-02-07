@@ -1,0 +1,195 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Propose Day – For My Bubu 💍</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets-propose-day/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets-propose-day/css/noscript.css" /></noscript>
+    <style>
+        /* Heartbeat animation for headers */
+        .heartbeat { animation: heartbeat 1.5s infinite; }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.05); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Floating hearts & roses animation */
+        .floating-heart, .floating-rose {
+            position: fixed;
+            bottom: -50px;
+            font-size: 24px;
+            animation: floatUp 8s linear infinite;
+            opacity: 0.5; /* reduced opacity */
+            z-index: 999;
+        }
+        .floating-rose { font-size: 26px; }
+        @keyframes floatUp {
+            0% { transform: translateY(0); opacity:0; }
+            10% { opacity:0.5; }
+            100% { transform: translateY(-110vh); opacity:0; }
+        }
+
+        /* Sparkle animation behind hearts/roses */
+        .sparkle {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background: radial-gradient(circle, #fff, transparent);
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: sparkleMove 4s linear infinite;
+            z-index: 998;
+        }
+        @keyframes sparkleMove {
+            0% { transform: translate(0,0) scale(0.5); opacity:0.8; }
+            50% { opacity:0.2; }
+            100% { transform: translate(100px,-100vh) scale(1); opacity:0; }
+        }
+
+        /* Banner text override */
+        .banner h1, .banner p { color:#ff4d6d; text-shadow: 2px 2px 6px #000000; }
+        .banner .button { background:#ff4d6d; color:#fff; border:none; }
+
+        /* Larger, more romantic messages */
+        .spotlight .content p { font-size: 1.2em; line-height: 1.8em; }
+    </style>
+</head>
+
+<body class="is-preload">
+<div id="wrapper" class="divided">
+
+    <!-- Banner – Propose Day -->
+    <section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+        <div class="content">
+            <h1 class="heartbeat">Propose Day 💍</h1>
+            <p class="major">Bubu, I still remember that magical day — flying across 20,000 miles from Chicago to Hyderabad, my heart racing, butterflies in my stomach, all for one question ❤️🌹</p>
+            <ul class="actions stacked">
+                <li><a href="#first" class="button big wide smooth-scroll-middle">Begin Our Journey</a></li>
+            </ul>
+        </div>
+        <div class="image">
+            <img src="images-propose-day/banner.jpg" alt="Propose Day" />
+        </div>
+    </section>
+
+    <!-- First Meeting at Durgam Cheruvu -->
+    <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
+        <div class="content">
+            <h2>Our First Meeting ❤️</h2>
+            <p>Bubu, November 23rd, 2024 — I flew from Chicago to Hyderabad, changing 3 flights, just to see you. My heart was beating fast, butterflies in my stomach, and the photographer had us pose awkwardly for pictures 😅🌹</p>
+        </div>
+        <div class="image">
+            <img src="images-propose-day/spotlight01.jpg" alt="Durgam Cheruvu" />
+        </div>
+    </section>
+
+    <!-- Proposal Moment -->
+    <section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+        <div class="content">
+            <h2>The Proposal 💖</h2>
+            <p>Seeing your surprised smile when I proposed, while trying to pose perfectly for the photographer, my heart could have burst! Every laugh, every glance, every butterfly moment is forever etched in my heart ❤️✨</p>
+        </div>
+        <div class="image">
+            <img src="images-propose-day/spotlight02.jpg" alt="Proposal" />
+        </div>
+    </section>
+
+    <!-- First Date Night -->
+    <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
+        <div class="content">
+            <h2>First Date Night 🍷🍤</h2>
+            <p>Our first dinner at Whisky Samba — the night you tried prawns, sushi, and Moscow Mule cocktail for the first time. Every bite, every laugh, every toast — unforgettable 🌸💞</p>
+        </div>
+        <div class="image">
+            <img src="images-propose-day/spotlight03.jpg" alt="Whisky Samba" />
+        </div>
+    </section>
+
+    <!-- Nostalgic Moments -->
+    <section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+        <div class="content">
+            <h2>Memories Forever 💞</h2>
+            <p>Bubu, every step of that day — the flights, the smiles, the hand in hand, the awkward poses for the camera — I relive them every day in my heart ❤️🌹✨</p>
+        </div>
+        <div class="image">
+            <img src="images-propose-day/spotlight04.jpg" alt="Our Journey" />
+        </div>
+    </section>
+
+    <!-- Gallery / Reel -->
+    <section class="wrapper style1 align-center">
+        <div class="inner">
+            <h2>Moments Captured 📸</h2>
+        </div>
+        <div class="gallery style2 medium lightbox onscroll-fade-in">
+            <article>
+                <a href="images-propose-day/gallery/fulls/01.jpg" class="image">
+                    <img src="images-propose-day/gallery/thumbs/01.jpg" alt="" />
+                </a>
+            </article>
+            <article>
+                <a href="images-propose-day/gallery/fulls/02.jpg" class="image">
+                    <img src="images-propose-day/gallery/thumbs/02.jpg" alt="" />
+                </a>
+            </article>
+            <article>
+                <a href="images-propose-day/gallery/fulls/03.jpg" class="image">
+                    <img src="images-propose-day/gallery/thumbs/03.jpg" alt="" />
+                </a>
+            </article>
+            <article>
+                <a href="images-propose-day/gallery/fulls/04.jpg" class="image">
+                    <img src="images-propose-day/gallery/thumbs/04.jpg" alt="" />
+                </a>
+            </article>
+        </div>
+        <div class="inner" style="margin-top:2em;">
+            <a href="index.html" class="button primary color2 big">Return to Valentine’s Week ❤️</a>
+        </div>
+    </section>
+
+</div>
+
+<!-- Floating Hearts + Roses + Sparkles Animation -->
+<script>
+setInterval(() => {
+    const el = document.createElement("div");
+    el.style.left = Math.random() * 100 + "vw";
+
+    if(Math.random() < 0.5) {
+        el.className = "floating-heart";
+        el.textContent = "💖";
+    } else {
+        el.className = "floating-rose";
+        el.textContent = "🌹";
+    }
+
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 8000);
+}, 600);
+
+/* Sparkles */
+setInterval(() => {
+    const sparkle = document.createElement("div");
+    sparkle.className = "sparkle";
+    sparkle.style.left = Math.random() * 100 + "vw";
+    sparkle.style.bottom = Math.random() * 50 + "px";
+    document.body.appendChild(sparkle);
+    setTimeout(() => sparkle.remove(), 4000);
+}, 300);
+</script>
+
+<script src="assets-propose-day/js/jquery.min.js"></script>
+<script src="assets-propose-day/js/jquery.scrollex.min.js"></script>
+<script src="assets-propose-day/js/jquery.scrolly.min.js"></script>
+<script src="assets-propose-day/js/browser.min.js"></script>
+<script src="assets-propose-day/js/breakpoints.min.js"></script>
+<script src="assets-propose-day/js/util.js"></script>
+<script src="assets-propose-day/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Rose Day – For My Bubu ❤️</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets-rose-day/css/main.css" />
+	<noscript><link rel="stylesheet" href="assets-rose-day/css/noscript.css" /></noscript>
+
+	<style>
+		.rose-heartbeat { animation: heartbeat 1.6s infinite; }
+		@keyframes heartbeat {
+			0% { transform: scale(1); }
+			25% { transform: scale(1.05); }
+			50% { transform: scale(1); }
+			75% { transform: scale(1.05); }
+			100% { transform: scale(1); }
+		}
+
+		.floating-heart, .floating-rose, .floating-confetti {
+			position: fixed;
+			z-index: 9999;
+			pointer-events: none;
+			font-size: 22px;
+			opacity: 0.9;
+		}
+		.floating-heart { color: #ff2d55; }
+		.floating-rose { color: #ff4e8a; }
+		.floating-confetti { color: gold; }
+
+		.modal-overlay {
+			position: fixed;
+			inset: 0;
+			background: rgba(0,0,0,0.6);
+			display: none;
+			align-items: center;
+			justify-content: center;
+			z-index: 1000;
+		}
+
+		.modal {
+			background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+			padding: 2.5em;
+			border-radius: 20px;
+			text-align: center;
+			max-width: 420px;
+			color: #4a1c2f;
+			animation: popIn 0.5s ease;
+		}
+		@keyframes popIn {
+			from { transform: scale(0.7); opacity: 0; }
+			to { transform: scale(1); opacity: 1; }
+		}
+	</style>
+</head>
+
+<body class="is-preload">
+<div id="page-wrapper">
+<div id="wrapper">
+
+<!-- SECTION 1 -->
+<section class="panel banner right color1">
+	<div class="content span-4">
+		<h1 class="major rose-heartbeat">Happy Rose Day 🌹<br>Bubu ❤️</h1>
+		<p>This page is my bouquet for you. Each rose on this page is a little reminder of how much you mean to me. 🌸
+            On Rose Day, I’m reminded that love doesn’t need grand gestures to feel complete. It lives in consistency, in quiet understanding, and in the comfort of knowing you’re beside me. This rose is a reflection of that steady love — calm, certain, and deeply felt.
+        </p>
+		<ul class="actions">
+			<li><a href="#one" class="button primary color2 circle icon solid fa-heart">Begin</a></li>
+			<li><a href="index.html" class="button circle icon solid fa-arrow-left">Back</a></li>
+		</ul>
+	</div>
+	<div class="image filtered span-2"><img src="images-rose-day/pic01.jpg" alt=""></div>
+</section>
+
+<!-- SECTION 2 -->
+<section class="panel spotlight medium right" id="one">
+	<div class="content span-7">
+        <br><br><br><br><br><br><br><br>
+		<h2 class="major">You Are My Rose 🌹</h2>
+		<p>You are my rose not for being flawless, but for the calm, understated beauty you bring into my life. I love all of it — our arguments, our laughter, and every tender, imperfect moment in between. ❤️</p>
+		<ul class="actions">
+			<li><button class="button primary color1" onclick="openHeart()">Open My Heart 💌</button></li>
+		</ul>
+	</div>
+	<div class="image filtered tinted"><img src="images-rose-day/pic02.jpg" alt=""></div>
+</section>
+
+<!-- SECTION 3 -->
+<section class="panel color2">
+	<div class="intro joined">
+		<h2 class="major">Every Day With You 🌸</h2>
+		<p>Every moment feels warmer because I have you, Bubu 💕</p>
+	</div>
+	<div class="inner">
+		<ul class="actions">
+			<li><button class="button" onclick="receiveRose()">Receive a Rose 🌹</button></li>
+		</ul>
+	</div>
+</section>
+
+<!-- SECTION 4 -->
+<section class="panel spotlight large left">
+	<div class="content span-5">
+		<h2 class="major">My Safe Place ❤️</h2>
+		<p>From Thailand to the USA, no matter the distance, you remain my safe place — my quiet peace in a loud world.🌹</p>
+	</div>
+	<div class="image filtered tinted"><img src="images-rose-day/pic03.jpg" alt=""></div>
+</section>
+
+<!-- SECTION 5 -->
+<section class="panel color1">
+	<div class="intro joined">
+		<h2 class="major">Forever Starts With Us 💖</h2>
+		<p>Forever doesn’t arrive all at once; it begins in the quiet moments we choose each other again and again. In shared laughter, in patience during difficult days, and in the comfort of knowing we walk forward side by side. With you, forever feels less like a promise and more like a natural continuation of love. 🌹</p>
+	</div>
+</section>
+
+<!-- SECTION 6 -->
+<section class="panel color2-alt">
+	<div class="intro color2">
+		<h2 class="major">Always Yours ❤️</h2>
+		<p>
+			If I had a rose for every time I loved you,<br>
+			I’d still be holding one — because my love never stops growing 🌹
+		</p>
+	</div>
+</section>
+
+<!-- SECTION 7 -->
+<section class="panel spotlight medium right">
+	<div class="content span-7">
+		<h2 class="major">Little Things 🌸</h2>
+		<p>
+            It’s not the grand gestures, Bubu.<br>
+            It’s every fight that teaches us more about each other,<br>
+            every meal we cook side by side,<br>
+            every playful wrestling moment,<br>
+            every cute, unspoken gesture —<br>
+            and the quiet moments in between,<br>
+            where you feel like home ❤️ ❤️
+		</p>
+	</div>
+	<div class="image filtered tinted">
+		<img src="images-rose-day/pic04.jpg" alt="">
+	</div>
+</section>
+
+<!-- SECTION 8 — Collage Gallery -->
+<section class="panel">
+	<div class="intro color2">
+		<h2 class="major">Our Moments 📸</h2>
+		<p>
+			A few memories,<br>
+			a thousand feelings,<br>
+			and endless love ❤️
+		</p>
+	</div>
+
+	<a href="images-rose-day/gallery/fulls/09.jpg" class="image filtered span-2-5" data-position="right">
+		<img src="images-rose-day/gallery/thumbs/09.jpg" alt="">
+	</a>
+</section>
+
+<!-- SECTION 9 -->
+<section class="panel color1">
+	<div class="intro joined">
+		<h2 class="major">Still You 🌹</h2>
+		<p>
+			After every word,<br>
+			every rose,<br>
+			and every moment —<br>
+			it’s still you, Bubu. Always ❤️
+		</p>
+
+		<ul class="actions" style="margin-top: 2em;">
+			<li>
+				<a href="index.html" class="button primary color2 icon solid fa-heart">
+					Valentine’s Week ❤️
+				</a>
+			</li>
+		</ul>
+	</div>
+</section>
+
+<div class="copyright">Made with ❤️ for Bubu</div>
+
+</div>
+</div>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="heartModal" onclick="closeModal('heartModal')">
+	<div class="modal">
+		<h3>My Heart 💖</h3>
+		<p>Bubu, my heart chose you and keeps choosing you every day ❤️ <br> because you are my meeeeli bubu</p>
+	</div>
+</div>
+
+<div class="modal-overlay" id="roseModal" onclick="closeModal('roseModal')">
+	<div class="modal">
+		<h3>🌹 A Rose For You 🌹</h3>
+		<p>This rose carries all my love, today and always ❤️ <br>Abhi shops open nhi honge so you might have to wait for your roses</p>
+	</div>
+</div>
+
+<script>
+	function openHeart(){ 
+		heartModal.style.display="flex"; 
+		for(let i=0;i<40;i++){
+			let e=document.createElement("div");
+			e.className = Math.random()>0.5 ? "floating-heart" : "floating-confetti";
+			e.textContent = e.className==="floating-heart" ? "💖" : "✨";
+			e.style.left = Math.random()*100+"vw";
+			e.style.top = "-50px";
+			e.style.fontSize = (12+Math.random()*20)+"px";
+			document.body.appendChild(e);
+			setTimeout(()=>e.remove(), 5000 + Math.random()*2000);
+			animateDown(e);
+		}
+	}
+
+	function receiveRose(){ 
+		roseModal.style.display="flex"; 
+		for(let i=0;i<50;i++){
+			let e=document.createElement("div");
+			e.className = Math.random()>0.5 ? "floating-rose" : "floating-confetti";
+			e.textContent = e.className==="floating-rose" ? "🌹" : "✨";
+			e.style.left = Math.random()*100+"vw";
+			e.style.top = "-50px";
+			e.style.fontSize = (14+Math.random()*20)+"px";
+			document.body.appendChild(e);
+			setTimeout(()=>e.remove(), 6000 + Math.random()*2000);
+			animateDown(e);
+		}
+	}
+
+	function animateDown(el){
+		let start = parseFloat(el.style.top);
+		let end = window.innerHeight + 50;
+		let duration = 4000 + Math.random()*2000;
+		let startTime = null;
+		function animate(time){
+			if(!startTime) startTime=time;
+			let progress = (time-startTime)/duration;
+			if(progress>1) progress=1;
+			el.style.transform = `translateY(${(end-start)*progress}px)`;
+			if(progress<1) requestAnimationFrame(animate);
+		}
+		requestAnimationFrame(animate);
+	}
+
+	function closeModal(id){ document.getElementById(id).style.display="none"; }
+</script>
+
+<script src="assets-rose-day/js/jquery.min.js"></script>
+<script src="assets-rose-day/js/browser.min.js"></script>
+<script src="assets-rose-day/js/breakpoints.min.js"></script>
+<script src="assets-rose-day/js/main.js"></script>
+</body>
+</html>

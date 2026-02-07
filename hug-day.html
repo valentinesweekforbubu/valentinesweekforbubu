@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Hug Day 💖</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        /* Reset */
+        * { margin:0; padding:0; box-sizing:border-box; font-family: 'Arial', sans-serif; }
+        body { background: #ffe6f0; overflow-x: hidden; }
+
+        /* Header */
+        #header {
+            text-align: center;
+            padding: 100px 20px 50px;
+            background: linear-gradient(135deg, #ffccd5, #ff99bb);
+            color: #fff;
+        }
+        #header h1 { font-size: 3em; margin-bottom: 20px; }
+        #header p { font-size: 1.2em; }
+
+        /* Button */
+        .hug-button {
+            padding: 15px 30px;
+            background: #ff3366;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .hug-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        }
+
+        /* Heart animation */
+        .heart {
+            position: absolute;
+            font-size: 2em;
+            color: #ff3366;
+            animation: float 4s ease-in-out infinite;
+            opacity: 0.8;
+        }
+        @keyframes float {
+            0% { transform: translateY(0) scale(1); opacity: 0.8; }
+            50% { transform: translateY(-250px) scale(1.3); opacity: 1; }
+            100% { transform: translateY(0) scale(1); opacity: 0.8; }
+        }
+
+        /* Hug Popup */
+        #hugPopup {
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: #ff6699;
+            color: white;
+            padding: 50px 70px;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 1.5em;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            z-index: 1000;
+            transition: transform 0.3s ease-in-out;
+        }
+        #hugPopup.show {
+            transform: translate(-50%, -50%) scale(1);
+        }
+        #hugPopup span {
+            display:block;
+            font-size: 2em;
+            margin-top: 20px;
+            animation: pulse 1s infinite alternate;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.3); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <section id="header">
+        <h1>Happy Hug Day! 🤗</h1>
+        <p>To my dearest love, a special hug just for you 💖</p>
+        <button class="hug-button" onclick="showHug()">Receive a Hug!</button>
+    </section>
+
+    <!-- Hug Popup -->
+    <div id="hugPopup">
+        🤗 Sending you a big warm hug!<br>
+        <span>💖💞💖</span>
+    </div>
+
+    <script>
+        // Create floating hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            heart.style.fontSize = (20 + Math.random() * 30) + 'px';
+            heart.textContent = '💖';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 4000);
+        }
+        setInterval(createHeart, 500);
+
+        // Show hug popup
+        function showHug() {
+            const popup = document.getElementById('hugPopup');
+            popup.classList.add('show');
+
+            // Hide after 3 seconds
+            setTimeout(() => {
+                popup.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+
+</body>
+</html>
