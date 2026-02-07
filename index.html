@@ -172,6 +172,7 @@ Each day carries a small surprise — just like the little moments you bring int
 
 			let pendingURL = "#";
 			let currentTitle = "";
+			let askQuestion = false; // ADDED
 
 			const cardQuestions = {
 				"Rose Day": {question: "What is your name?", answer: "bubu"},
@@ -209,8 +210,10 @@ Each day carries a small surprise — just like the little moments you bring int
 					const diffDays = Math.ceil((targetDate - today) / (1000 * 60 * 60 * 24));
 
 					if (diffDays > 0) {
+						askQuestion = false;
 						modalText.innerText = romanticWaitMessages[currentTitle](diffDays);
 					} else {
+						askQuestion = true;
 						modalText.innerText = `Today is ${currentTitle}! 💖 Answer this question before going: ${cardQuestions[currentTitle].question}`;
 					}
 
@@ -218,7 +221,26 @@ Each day carries a small surprise — just like the little moments you bring int
 				});
 			});
 
-			modalClose.addEventListener('click', () => modal.style.display = 'none');
+			modalClose.addEventListener('click', () => {
+
+				if (askQuestion && cardQuestions[currentTitle]) {
+					const answer = prompt(cardQuestions[currentTitle].question);
+
+					if (
+						answer &&
+						answer.trim().toLowerCase() ===
+						cardQuestions[currentTitle].answer.toLowerCase()
+					) {
+						window.location.href = pendingURL;
+						return;
+					} else {
+						alert("Hmm… bubu. That is not correct answer... 💭 Think harder.");
+					}
+				}
+
+				askQuestion = false;
+				modal.style.display = 'none';
+			});
 		});
 		</script>
 	</section>
