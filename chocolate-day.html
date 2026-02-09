@@ -18,6 +18,68 @@
             overflow-x: hidden;
         }
 
+        /* Added romantic section + gallery */
+        .romantic-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 20px;
+            background: #fff1f3;
+        }
+        .romantic-row img {
+            width: 260px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,.2);
+        }
+        .romantic-text {
+            max-width: 420px;
+            color: #7a1c2f;
+            line-height: 1.6;
+        }
+
+        .choco-gallery {
+            background: #fff;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .choco-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+        .choco-grid img {
+            width: 100%;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: .3s;
+        }
+        .choco-grid img:hover {
+            transform: scale(1.08);
+            box-shadow: 0 12px 30px rgba(0,0,0,.25);
+        }
+
+        /* Gallery popup */
+        .gallery-popup {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        .gallery-popup .box {
+            background: #fff;
+            padding: 30px;
+            border-radius: 25px;
+            width: 300px;
+            text-align: center;
+        }
+
         /* Centered top header */
         #header {
             width: 100%;
@@ -166,16 +228,19 @@
 
 <!-- Header -->
 <header id="header" class="alt">
-    <h1 id="logo"><a href="#">Chocolate Day <span>For You 💕</span></a></h1>
+    <h1 id="logo" style="color:whitesmoke><a href="#">Happy Chocolate Day 💕</a></h1>
 </header>
 
 <!-- Banner -->
 <section id="banner">
     <div class="inner">
         <header>
-            <h2>Happy Chocolate Day 🍫💖</h2>
+            <h3>Happy Chocolate Day Sweetheart 🍫💖</h3>
         </header>
         <p>Because love is sweet,<br>but chocolate makes it sweeter 😘</p>
+        <p>Aaj to bubu ke teekhe daant to meetha karne ka din hai. Yaayeee! 🍫💖😘</p>
+
+        
     </div>
 </section>
 
@@ -187,6 +252,39 @@
         <p>Let’s play a tiny game<br>and win something delicious 🍫</p>
     </header>
 </article>
+
+<!-- Romantic Section -->
+<section class="romantic-row">
+    <video 
+    src="images-chocolate-day/bubu.mp4" 
+    autoplay 
+    loop 
+    muted 
+    playsinline 
+    style="width:260px; border-radius:20px; box-shadow:0 10px 25px rgba(0,0,0,.2);">
+</video>
+    <div class="romantic-text">
+        <h3>Bubu and chocolate 💕</h3>
+        <p>When you like a chocolate you make that uummh sound (which i always get by the way), and that yaayee gesture. wo dekhne ke liye to I ll do anything bubu. Lekin jada chocolate nhi. ab se gym jana hai. aaj ke liye jo chocolate hai niche usme se choose karo and fir bubu and babu chocolate shopping chalenge. Yaayeee! ❤️</p>
+    </div>
+</section>
+
+<!-- Chocolate Gallery -->
+<section class="choco-gallery">
+    <h2 style="color:#7a1c2f;">Choose Your Chocolate 🍫</h2>
+    <div class="choco-grid">
+        <img src="images-chocolate-day/pic07.jpg" onclick="showGalleryPopup()">
+        <img src="images-chocolate-day/pic02.jpg" onclick="showGalleryPopup()">
+        <img src="images-chocolate-day/pic03.jpg" onclick="showGalleryPopup()">
+        <img src="images-chocolate-day/pic04.jpg" onclick="showGalleryPopup()">
+        <img src="images-chocolate-day/pic05.jpg" onclick="showGalleryPopup()">
+        <img src="images-chocolate-day/pic06.jpg" onclick="showGalleryPopup()">
+        <img src="images-chocolate-day/pic08.jpg" onclick="showGalleryPopup()">
+        <img src="images-chocolate-day/pic09.jpg" onclick="showGalleryPopup()">
+        <img src="images-chocolate-day/pic10.jpg" onclick="showGalleryPopup()">
+        <img src="images-chocolate-day/pic11.jpg" onclick="showGalleryPopup()">
+    </div>
+</section>
 
 <!-- CTA -->
 <section id="cta">
@@ -228,8 +326,28 @@
 
 </div>
 
+<!-- Gallery Popup -->
+<div class="gallery-popup" id="galleryPopup">
+    <div class="box">
+    <h3>Not so easy 😘</h3>
+    <p>You have to earn this chocolate 🍫<br>Please play the game first 💕</p>
+    <button onclick="closeGalleryPopup()">Okay 💖</button>
+    </div>
+    </div>
+
 <!-- JS -->
 <script>
+
+
+/* Gallery popup */
+function showGalleryPopup(){
+    document.getElementById("galleryPopup").style.display="flex";
+}
+function closeGalleryPopup(){
+    document.getElementById("galleryPopup").style.display="none";
+    setTimeout(scrollToGame,200);
+}
+
 const canvas = document.getElementById("wheel");
 const ctx = canvas.getContext("2d");
 const popup = document.getElementById("popup");
@@ -292,7 +410,7 @@ function showPopup(){
     } else {
         popupTitle.innerText="Yayyy 💝";
         popupResult.innerHTML=`You won <strong>Dairy Milk 🍫</strong><br>
-            Your chocolate is waiting in the <strong>drawer of the side table 💕</strong>`;
+            Chalo chal ke shopping karenge. chocolate cake and chocolates ki 💕</strong>`;
         popupBtn.innerText="Yay! I’ll get it 😘";
         startFalling();
     }
