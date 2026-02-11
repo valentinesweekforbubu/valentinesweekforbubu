@@ -1,0 +1,223 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Happy Teddy Day to My Bubu 🧸</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets-teddy-day/css/main.css" />
+	<noscript><link rel="stylesheet" href="assets-teddy-day/css/noscript.css" /></noscript>
+
+	<style>
+		/* Keep background same, prevent white flash, add header.jpg */
+		body.is-preload,
+		body,
+		#page-wrapper {
+			background: url('images-teddy-day/header.jpg') no-repeat center center fixed;
+			background-size: cover;
+			color: #000;
+		}
+
+		#popupOverlay {
+			position: fixed;
+			inset: 0;
+			background: rgba(0,0,0,0.7);
+			display: none;
+			align-items: center;
+			justify-content: center;
+			z-index: 9999;
+		}
+		#popupContent {
+			background: #fff;
+			padding: 20px;
+			border-radius: 14px;
+			text-align: center;
+			max-width: 380px;
+			box-shadow: 0 0 35px rgba(255,105,180,0.6);
+			animation: pop 0.4s ease;
+		}
+		@keyframes pop {
+			from { transform: scale(0.7); opacity: 0; }
+			to { transform: scale(1); opacity: 1; }
+		}
+		video {
+			width: 100%;
+			border-radius: 12px;
+		}
+		#popupMessage {
+			margin-top: 15px;
+			color: #ff5fa2;
+			font-size: 1.1em;
+			font-weight: 600;
+		}
+		.closeBtn {
+			margin-top: 15px;
+			padding: 8px 18px;
+			background: #ff5fa2;
+			color: #fff;
+			border-radius: 20px;
+			cursor: pointer;
+			display: inline-block;
+		}
+
+		/* FIX BUTTON TEXT OVERFLOW */
+		.button.circled {
+			font-size: 0.85em;
+			padding: 0 1.4em;
+		}
+
+		/* TEDDY SHOWER */
+		.teddy {
+			position: fixed;
+			top: -50px;
+			font-size: 24px;
+			animation: fall linear infinite;
+			z-index: 1;
+			pointer-events: none;
+		}
+		@keyframes fall {
+			to { transform: translateY(110vh) rotate(360deg); }
+		}
+	</style>
+</head>
+
+<body class="homepage is-preload">
+<div id="page-wrapper">
+
+	<!-- POPUP -->
+	<div id="popupOverlay">
+		<div id="popupContent">
+			<video id="tubuVideo" autoplay loop muted playsinline></video>
+			<div id="popupMessage"></div>
+			<div class="closeBtn" onclick="closePopup()">Close</div>
+		</div>
+	</div>
+
+	<!-- Header -->
+	<div id="header">
+		<div class="inner">
+			<header>
+				<h1><a href="#" id="logo">Happy Teddy Day to My Bubu 🧸</a></h1>
+				<hr />
+				<p>I may not be fluffy… but I’m your teddy for life ❤️</p>
+			</header>
+			<footer>
+				<a href="javascript:void(0)" class="button circled"
+				   onclick="openPopup('tubu6.mp4')">Hug Your Teddy</a>
+			</footer>
+		</div>
+
+		<!-- Nav -->
+		<nav id="nav">
+			<ul>
+				<li><a href="javascript:void(0)" onclick="openPopup('tubu1.mp4')">Your Tubu Now</a></li>
+				<li><a href="javascript:void(0)" onclick="openPopup('tubu2.mp4')">Your Tubu in 2027</a></li>
+				<li><a href="javascript:void(0)" onclick="openPopup('tubu3.mp4')">Your Tubu in 2028</a></li>
+				<li><a href="javascript:void(0)" onclick="openPopup('tubu4.mp4')">Your Tubu in 2029</a></li>
+				<li><a href="javascript:void(0)" onclick="openPopup('tubu5.mp4')">Your Tubu forever..</a></li>
+			</ul>
+		</nav>
+	</div>
+
+	<!-- Banner -->
+	<section id="banner">
+		<header>
+			<h2>Every version of me is still your teddy 🧸</h2>
+			<p>Today, tomorrow, and every year ahead — pls choose m, Bubu. Nhi to fir mai kya hi kar sakta hu ❤️</p>
+		</header>
+	</section>
+
+	<!-- Main -->
+	<div class="wrapper style2">
+		<article id="main" class="container special">
+			<header>
+				<h2>Why I’m Your Tubu</h2>
+				<p>
+					I’ll hold you when you’re tired,<br>
+					I’ll hold you when you’re tired,<br>
+					Push your bum with my chest and mouth while climbimg ladder,<br>
+					Will irritate you with meeli bubu all the time,<br>
+					and love you harder every day.
+					<br><br>
+				</p>
+				<p>I know you wanna see Hulku again -- Go for it</p>
+			</header>
+			<footer>
+				<a href="javascript:void(0)" class="button"
+				   onclick="openPopup('tubu1.mp4')">Hulku Again</a>
+			</footer>
+		</article>
+	</div>
+
+	<!-- Footer -->
+	<div id="footer">
+		<div class="container">
+			<div class="copyright">
+				<ul class="menu">
+					<li>Made with endless hugs 🧸❤️</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- Return Button to Valentine's Week Page -->
+	<div style="text-align:center; margin: 40px 0;">
+		<a href="index.html" class="button circled" style="background:#ff5fa2; color:#fff; padding:12px 24px; font-size:1em;">
+			Return to Valentine's Week Page
+		</a>
+	</div>
+
+</div>
+
+<script>
+	const messages = {
+		"tubu1.mp4": "Tumhara hulku re is transforming into tubu re 🧸🧸",
+		"tubu2.mp4": "Thailand ki garmiyo se.... tumhara tubu 🧸🧸",
+		"tubu3.mp4": "Happy teddy day meeli bubu 🧸🧸",
+		"tubu4.mp4": "BUBU ka cute TUBU 🧸🧸",
+		"tubu5.mp4": "hug your tubu 🧸🧸",
+		"tubu6.mp4": "The most relaxing and calm and safest and conspiquous place 🧸🧸"
+	};
+
+	function openPopup(videoFile) {
+		const video = document.getElementById('tubuVideo');
+		const message = document.getElementById('popupMessage');
+		video.src = 'images-teddy-day/' + videoFile;
+		video.load();
+		video.play();
+		message.innerText = messages[videoFile];
+		document.getElementById('popupOverlay').style.display = 'flex';
+	}
+
+	function closePopup() {
+		const video = document.getElementById('tubuVideo');
+		video.pause();
+		video.src = '';
+		document.getElementById('popupOverlay').style.display = 'none';
+	}
+
+	// TEDDY SHOWER
+	for (let i = 0; i < 25; i++) {
+		const teddy = document.createElement('div');
+		teddy.className = 'teddy';
+		teddy.innerText = '🧸';
+		teddy.style.left = Math.random() * 100 + 'vw';
+		teddy.style.animationDuration = (5 + Math.random() * 5) + 's';
+		teddy.style.fontSize = (20 + Math.random() * 20) + 'px';
+		document.body.appendChild(teddy);
+	}
+
+	// Keep is-preload to avoid white flash
+	document.addEventListener('DOMContentLoaded', () => {});
+</script>
+
+<script src="assets-teddy-day/js/jquery.min.js"></script>
+<script src="assets-teddy-day/js/jquery.dropotron.min.js"></script>
+<script src="assets-teddy-day/js/jquery.scrolly.min.js"></script>
+<script src="assets-teddy-day/js/jquery.scrollex.min.js"></script>
+<script src="assets-teddy-day/js/browser.min.js"></script>
+<script src="assets-teddy-day/js/breakpoints.min.js"></script>
+<script src="assets-teddy-day/js/util.js"></script>
+<script src="assets-teddy-day/js/main.js"></script>
+
+</body>
+</html>
