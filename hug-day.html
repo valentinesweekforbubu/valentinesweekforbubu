@@ -1,124 +1,253 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Hug Day 💖</title>
+    <title>Happy Hug Day 💞🤗</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
-        /* Reset */
-        * { margin:0; padding:0; box-sizing:border-box; font-family: 'Arial', sans-serif; }
-        body { background: #ffe6f0; overflow-x: hidden; }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: radial-gradient(circle at 20% 30%, #330033, #000014 70%);
+            color: white;
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
 
-        /* Header */
+        /* Stars and galaxies */
+        .twinkle-stars {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: url('images/stars.gif') repeat;
+            background-size: cover;
+            opacity: 0.3;
+            z-index: -3;
+        }
+
+        .galaxy {
+            position: fixed;
+            width: 250px;
+            height: 250px;
+            background: url('images/galaxy1.png') no-repeat center/contain;
+            opacity: 0.6;
+            filter: drop-shadow(0 0 25px #ff4da6) drop-shadow(0 0 40px #ff66cc);
+            animation: spinGalaxy 200s linear infinite;
+            z-index: -2;
+        }
+        .galaxy:nth-child(2) {
+            left: 70%;
+            top: 10%;
+            width: 300px;
+            height: 300px;
+            animation-duration: 300s;
+            opacity: 0.5;
+        }
+        .galaxy:nth-child(3) {
+            left: 20%;
+            top: 70%;
+            width: 180px;
+            height: 180px;
+            animation-duration: 250s;
+            opacity: 0.55;
+        }
+        @keyframes spinGalaxy {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Floating emojis & confetti */
+        #floatingContainer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .float {
+            position: absolute;
+            user-select: none;
+            pointer-events: none;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) translateX(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            100% { transform: translateY(-10vh) translateX(50px) rotate(360deg); opacity: 0; }
+        }
+
+        /* Header and message */
         #header {
             text-align: center;
-            padding: 100px 20px 50px;
-            background: linear-gradient(135deg, #ffccd5, #ff99bb);
-            color: #fff;
+            padding: 50px 20px 20px 20px;
+            font-size: 2rem;
+            letter-spacing: 2px;
         }
-        #header h1 { font-size: 3em; margin-bottom: 20px; }
-        #header p { font-size: 1.2em; }
+        #header strong { color: #ff4da6; }
 
-        /* Button */
-        .hug-button {
-            padding: 15px 30px;
-            background: #ff3366;
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.2em;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .hug-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-        }
-
-        /* Heart animation */
-        .heart {
-            position: absolute;
-            font-size: 2em;
-            color: #ff3366;
-            animation: float 4s ease-in-out infinite;
-            opacity: 0.8;
-        }
-        @keyframes float {
-            0% { transform: translateY(0) scale(1); opacity: 0.8; }
-            50% { transform: translateY(-250px) scale(1.3); opacity: 1; }
-            100% { transform: translateY(0) scale(1); opacity: 0.8; }
-        }
-
-        /* Hug Popup */
-        #hugPopup {
-            position: fixed;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%) scale(0);
-            background: #ff6699;
-            color: white;
-            padding: 50px 70px;
-            border-radius: 20px;
+        .message {
             text-align: center;
-            font-size: 1.5em;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            z-index: 1000;
-            transition: transform 0.3s ease-in-out;
+            margin: 20px auto 40px auto;
+            font-size: 1.2rem;
+            max-width: 600px;
+            line-height: 1.6;
         }
-        #hugPopup.show {
-            transform: translate(-50%, -50%) scale(1);
+
+        .hug-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            background: linear-gradient(45deg, #ff4da6, #ff99cc);
+            border: none;
+            border-radius: 15px;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 0 25px #ff4da6, 0 0 50px #ff99cc;
+            transition: 0.3s ease;
         }
-        #hugPopup span {
-            display:block;
-            font-size: 2em;
+        .hug-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 35px #ff4da6, 0 0 60px #ff99cc;
+        }
+
+        /* Video Modal */
+        .video-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.95);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 9999;
+        }
+        .video-modal video {
+            max-width: 75%;
+            max-height: 70%;
+            border-radius: 15px;
+            box-shadow: 0 0 25px #ff4da6, 0 0 50px #ff99cc;
+        }
+        .video-title {
             margin-top: 20px;
-            animation: pulse 1s infinite alternate;
+            font-size: 1.4rem;
+            color: #ff99cc;
+            text-align: center;
         }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.3); }
+        .video-message {
+            margin-top: 15px;
+            font-size: 1.2rem;
+            text-align: center;
+            color: #ffb3d9;
+            max-width: 600px;
         }
+        .close-btn {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 35px;
+            cursor: pointer;
+            color: white;
+        }
+
+        /* Return button */
+        .return-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 8px 16px;
+            font-size: 1rem;
+            background: #ff4da6;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            opacity: 0.85;
+        }
+        .return-btn:hover { opacity: 1; }
     </style>
 </head>
+
 <body>
 
-    <!-- Header -->
-    <section id="header">
-        <h1>Happy Hug Day! 🤗</h1>
-        <p>To my dearest love, a special hug just for you 💖</p>
-        <button class="hug-button" onclick="showHug()">Receive a Hug!</button>
-    </section>
+<!-- Stars and galaxies -->
+<div class="twinkle-stars"></div>
+<div class="galaxy"></div>
+<div class="galaxy"></div>
+<div class="galaxy"></div>
 
-    <!-- Hug Popup -->
-    <div id="hugPopup">
-        🤗 Sending you a big warm hug!<br>
-        <span>💖💞💖</span>
+<!-- Floating emojis & confetti -->
+<div id="floatingContainer"></div>
+
+<div id="header">
+    <strong>Happy Hug Day</strong> 💞🤗
+</div>
+
+<div class="message">
+    💖 My Bubu, today I send you a hug across the stars! 💫<br>
+    Every moment with you is magical my motain, puchain, cutain, sweetain, kuchain 🌹✨💞<br>
+    Feel my arms around you, always and forever 💖💞🌸
+</div>
+
+<button class="hug-btn" onclick="openHugVideo()">Get a Hug 🤗💖</button>
+
+<!-- Video Modal -->
+<div class="video-modal" id="hugModal">
+    <span class="close-btn" onclick="closeHug()">&times;</span>
+    <video id="hugVideo" autoplay muted playsinline></video>
+    <div class="video-title">A Hug for You 💖🤗✨</div>
+    <div class="video-message">
+        I will always hold you in my life, always hug you 💞💖✨<br>
+        Because that's where I find peace and my softest cushion 🌸💫
     </div>
+</div>
 
-    <script>
-        // Create floating hearts
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.className = 'heart';
-            heart.style.left = Math.random() * window.innerWidth + 'px';
-            heart.style.fontSize = (20 + Math.random() * 30) + 'px';
-            heart.textContent = '💖';
-            document.body.appendChild(heart);
-            setTimeout(() => heart.remove(), 4000);
-        }
-        setInterval(createHeart, 500);
+<audio id="heartbeatSound" src="assets/audio/heartbeat.mp3"></audio>
+<button class="return-btn" onclick="location.href='index.html'">Return to Main Page</button>
 
-        // Show hug popup
-        function showHug() {
-            const popup = document.getElementById('hugPopup');
-            popup.classList.add('show');
+<script>
+function openHugVideo() {
+    const modal = document.getElementById("hugModal");
+    const video = document.getElementById("hugVideo");
+    const heartbeat = document.getElementById("heartbeatSound");
 
-            // Hide after 3 seconds
-            setTimeout(() => {
-                popup.classList.remove('show');
-            }, 3000);
-        }
-    </script>
+    video.src = "images-hug-day/hug-day.mp4";
+    modal.style.display = "flex";
+    video.play();
+    heartbeat.play();
+}
+
+function closeHug() {
+    const modal = document.getElementById("hugModal");
+    const video = document.getElementById("hugVideo");
+    const heartbeat = document.getElementById("heartbeatSound");
+
+    video.pause();
+    video.src = "";
+    heartbeat.pause();
+    heartbeat.currentTime = 0;
+    modal.style.display = "none";
+}
+
+// Floating emojis and confetti
+const floatingEmojis = ["🤗","❤️","🌹","🧸","💞","✨","🎉","🎊","💖","🌸"];
+const container = document.getElementById("floatingContainer");
+
+for(let i=0; i<30; i++) {
+    const span = document.createElement("span");
+    span.className = "float";
+    span.innerText = floatingEmojis[Math.floor(Math.random()*floatingEmojis.length)];
+    span.style.left = Math.random()*100 + "vw";
+    span.style.top = Math.random()*100 + "vh"; // random vertical start
+    const duration = 15 + Math.random()*20; // 15-35s
+    const delay = Math.random()*10; // random delay
+    span.style.fontSize = (15 + Math.random()*30) + "px";
+    span.style.animation = `floatUp ${duration}s linear ${delay}s infinite`;
+    container.appendChild(span);
+}
+</script>
 
 </body>
 </html>
