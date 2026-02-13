@@ -1,120 +1,244 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Happy Valentine’s Day 💖</title>
+    <title>Valentine's Day 💖</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets-valentines-day/css/main.css" />
+
+    <!-- Google Fonts: Romantic Script -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Typewriter effect for first line */
+        .typewriter h1 {
+            font-family: 'Dancing Script', cursive;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: .15em solid #ff3366;
+            animation: typing 3s steps(30, end), blink .75s step-end infinite;
+            display: inline-block;
+            font-size: 2rem;
+        }
+
+        .typewriter p {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.2rem;
+            margin-top: 10px;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink { 50% { border-color: transparent } }
+
+        /* Floating emojis */
+        #floatingContainer {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .float {
+            position: absolute;
+            user-select: none;
+            pointer-events: none;
+            font-size: 24px;
+            animation: floatUp 15s linear infinite;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) translateX(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            100% { transform: translateY(-10vh) translateX(50px) rotate(360deg); opacity: 0; }
+        }
+
+        /* Full-screen GIF modal with zoom-in effect */
+        #gifModal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        #gifModal img {
+            width: 100px; /* start small */
+            height: auto;
+            animation: zoomIn 2.5s forwards;
+        }
+
+        @keyframes zoomIn {
+            0% { transform: scale(0); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: scale(10); opacity: 1; } /* zoom to cover screen */
+        }
+
+        /* Multiverse button styling */
+        .hug-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #6c757d;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1em;
+            border-radius: 25px;
+            transition: background 0.3s ease;
+        }
+        .hug-button:hover {
+            background-color: #5a6268;
+        }
+    </style>
 </head>
 <body class="is-preload">
 
-    <!-- Header -->
-    <section id="header">
-        <header class="major">
-            <h1>Happy Valentine’s Day, Bubu! 💖</h1>
-            <p>All my love is wrapped up just for you 💕</p>
-        </header>
-    </section>
+<!-- Floating emojis -->
+<div id="floatingContainer"></div>
 
-    <!-- One – Love Letter -->
-    <section id="one" class="main special">
-        <div class="container">
-            <div class="content">
-                <header class="major">
-                    <h2>Why I Love You</h2>
-                </header>
-                <p>
-                    <!-- Dummy romantic letter, 1000 lines placeholder -->
-                    <!-- You can replace each line later with your own text -->
-                    1. My heart beats for you every single moment.<br>
-                    2. Every time I see you, my world lights up.<br>
-                    3. Your smile is the sunshine of my life.<br>
-                    4. I love the way your hand fits perfectly in mine.<br>
-                    5. Every hug from you feels like home.<br>
-                    6. Your laughter is my favorite melody.<br>
-                    7. Being with you makes everything better.<br>
-                    8. I love the way you look at me.<br>
-                    9. Your voice is my favorite song.<br>
-                    10. I could spend forever just holding you.<br>
-                    <!-- Repeat lines to reach ~1000 or more -->
-                    <!-- For demo, you can copy-paste this block until 1000 lines -->
-                    11. You are my dream come true.<br>
-                    12. Your love fills every corner of my soul.<br>
-                    13. I think about you every second.<br>
-                    14. I love your gentle touch.<br>
-                    15. Every day with you is my favorite.<br>
-                    16. Your eyes tell me everything I need.<br>
-                    17. I cherish every memory with you.<br>
-                    18. You are my safe place.<br>
-                    19. My heart is yours forever.<br>
-                    20. I will always stand by you.<br>
-                    <!-- Continue until you reach 1000 lines -->
-                </p>
+<!-- Header -->
+<section id="header">
+    <header class="major typewriter">
+        <h1 id="valentineTitle">Happy Valentine's Day! 💌💖</h1>
+        <p id="valentineDesc">So now, after the full week of Valentine’s, here we are today on Valentine’s Day. I hope you enjoyed your Valentine week! 💞</p>
+    </header>
+</section>
 
-                <!-- Dinner button -->
-                <div style="text-align:center; margin:40px 0;">
-                    <button class="hug-button" onclick="showPopup()">Will you have dinner with me tonight? 🍽️💖</button>
-                </div>
+<!-- Content Sections -->
+<section id="one" class="main special">
+    <div class="container">
+        <span class="image fit primary"><img src="images-valentines-day/pic01.jpg" alt="" /></span>
+        <div class="content">
+            <header class="major"><h2>Our First Valentine's Day Together</h2></header>
+            <p>Do you remember last year’s Valentine? I wrote you a poem:<br><br>
+            💌💌💌Happy Valentine's Day 💌💌💌<br><br>
+            So this is our first Valentine’s Day - Feb 14th, 2025.<br>
+            I hope ki 2075 (👴👵) me bhi hum dono healthy rahein aur saath me ye din celebrate kare jab hamare bache hame ghar se nikal denge.</p>
+        </div>
+    </div>
+</section>
 
-                <!-- Inline CSS for button and popup -->
-                <style>
-                    .hug-button {
-                        padding:20px 50px;
-                        background:#ff3366;
-                        color:white;
-                        border:none;
-                        border-radius:50px;
-                        font-size:1.5em;
-                        cursor:pointer;
-                        box-shadow:0 5px 15px rgba(0,0,0,0.3);
-                        transition: transform 0.2s, box-shadow 0.2s;
-                    }
-                    .hug-button:hover {
-                        transform: scale(1.1);
-                        box-shadow:0 10px 25px rgba(0,0,0,0.4);
-                    }
-                    #popup {
-                        position: fixed;
-                        top: 50%; left: 50%;
-                        transform: translate(-50%, -50%) scale(0);
-                        background: #ff6699;
-                        color: white;
-                        padding: 50px 70px;
-                        border-radius: 20px;
-                        text-align: center;
-                        font-size: 1.5em;
-                        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-                        z-index: 1000;
-                        transition: transform 0.3s ease-in-out;
-                    }
-                    #popup.show { transform: translate(-50%, -50%) scale(1); }
-                    #popup span {
-                        display:block;
-                        font-size:2em;
-                        margin-top:20px;
-                        animation:pulse 1s infinite alternate;
-                    }
-                    @keyframes pulse { 0%{transform:scale(1);} 100%{transform:scale(1.3);} }
-                </style>
+<section id="two" class="main special">
+    <div class="container">
+        <span class="image fit primary"><img src="images-valentines-day/pic02.jpg" alt="" /></span>
+        <div class="content">
+            <header class="major"><h2>Wishing You, My Valentine</h2></header>
+            <p>Okay future ki baat baad me, pehle mujhe wish karna hai. I have no clue ki kaise wish karu, but I want to try -<br><br>
+            Jaane anjaane me Kya se Kya ho gaya.<br>
+            Pata hi nahi chala, aur tumse Pyar ho gaya.<br>
+            Dekhte dekhte 8 months beet gaya,<br>
+            Aur tum meri Valentine ban gayi and mai tumhare Valentine ban gaya.<br><br>
+            Ye abhi abhi banaya maine 😎.<br><br>
+            Okay okay Miss ICSE, aapke liye ek angrezi me:<br>
+            One glass water 🚰, one glass beer 🍺<br>
+            Oh my dear , Happy valentines day 😘<br><br>
+            Okay thik hai ye lame tha 😒 Ab muh mat banao. 😒 😒😒😒😒<br>
+            Are ab smile to mat karo 😄😄😄😄😄<br>
+            Be serious. I am trying to do something here. Let me concentrate 🥸🥸🥸🥸🥸</p>
+        </div>
+    </div>
+</section>
 
-                <!-- Popup -->
-                <div id="popup">
-                    🍽️ I would love to have dinner with you tonight! 💖<br>
-                    <span>💝💌💝</span>
-                </div>
+<section id="three" class="main special">
+    <div class="container">
+        <span class="image fit primary"><img src="images-valentines-day/pic03.jpg" alt="" /></span>
+        <div class="content">
+            <header class="major"><h2>Our Journey & Poem</h2></header>
+            <p>
+Okay one last try -<br><br>
+One glass water, one glass wine 🍷,<br>
+No No No… that is not todays headline 📰,<br><br>
+One late afternoon, I was working on my code fix to make it more refine 👨‍💻💻,<br>
+And you would be operating in OT on someone’s spine 🩺 👩‍⚕️,<br><br>
+Someone out there planned our destiny to redesign 🌠🕉️,<br>
+I still remember when my jeevansaathi request got decline 😔,<br>
+Fortunately, with Shaadi .com all the stars finally align 😇,<br><br>
+It did not take much time for us to combine 👫,<br>
+Everything finally turned out to be fine 🥲,<br><br>
+On Nov 29th 2024, we did cross the line 😘,<br>
+But that's okay because we were engaged and you are going to be mine 💍,<br><br>
+And here we are after 8 months planning our wedding and fixing our outline 🏋️‍♀️🤸‍♀️,<br>
+Today we are continents apart but next year we will celebrate somewhere in US in Fine-Dine 🤵‍♂️👱‍♀️,<br><br>
+And I wish we both will be with each other always, till the end when we won’t be able to recline 👨‍🦽👩‍🦽,<br>
+I wish our future to always shine ✨🔮,<br><br>
+This is a small recap of our journey together as 🍄 and 🍷,<br>
+I am very happy that you are my Valentine 😘🥰<br><br>
+Ummm… chehre pe smile to dekho. Mujhe lagta hai Ye email jitni baar padhogi future me utni baar smile karogi.<br><br>
+Dil ki baat ye hai ki I’m not a professional photographer, but I pictured us together on our first call 📞 👩‍❤️‍👨<br>
+And after that I felt like I found you…<br>
+I am falling in love with you…<br>
+I want you…<br><br>
+Happy Valentine’s Day Miss ICSE.<br><br>
+And also, I love you 😘😘😘😘😘<br><br>
+See through this year we developed few new words to rhyme in the poem like - cutain, motain, gadhain, puchain, kuchain.<br>
+To aage badhte hain - I know I am motu but i don't care because you are my motain.<br>
+We will fight always and you if call me gadha thats okay because you are my gadhain.<br><br>
+Ye shaadi me sirf saath janam tak hi batate hain but hum to har universe me saath hi. rich or poor, happy or sad, etc etc hum always saath hai. do you wanna see how we are in multiverse?
+            </p>
 
-                <!-- JS for popup -->
-                <script>
-                    function showPopup(){
-                        const popup = document.getElementById('popup');
-                        popup.classList.add('show');
-                        setTimeout(()=>popup.classList.remove('show'),3000);
-                    }
-                </script>
-
+            <!-- Multiverse Button -->
+            <div style="text-align:center; margin:40px 0;">
+                <a href="#" id="multiverseBtn" class="hug-button">See Our Multiverse 💫🌌</a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<!-- GIF Modal -->
+<div id="gifModal">
+    <img src="images-valentines-day/stars.gif" alt="Multiverse GIF">
+</div>
+
+<!-- Footer -->
+<section id="footer">
+    <footer>
+        <ul class="icons">
+            <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="#" class="icon brands alt fa-dribbble"><span class="label">Dribbble</span></a></li>
+            <li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+        </ul>
+        <ul class="copyright">
+            <li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li><li>Demo images-valentines-day: <a href="http://unsplash.com">Unsplash</a></li>
+        </ul>
+    </footer>
+</section>
+
+<script>
+window.addEventListener('load', () => {
+    const p = document.getElementById('valentineDesc');
+    setTimeout(() => { p.style.opacity = 1; }, 3000);
+
+    // Floating emojis
+    const floatingEmojis = ["💖","💞","💌","🌹","🧸","✨"];
+    const container = document.getElementById("floatingContainer");
+    for(let i=0; i<30; i++) {
+        const span = document.createElement("span");
+        span.className = "float";
+        span.innerText = floatingEmojis[Math.floor(Math.random()*floatingEmojis.length)];
+        span.style.left = Math.random()*100 + "vw";
+        span.style.top = Math.random()*100 + "vh";
+        span.style.fontSize = (15 + Math.random()*20) + "px";
+        span.style.animationDuration = (10 + Math.random()*10) + "s";
+        span.style.animationDelay = Math.random()*5 + "s";
+        container.appendChild(span);
+    }
+
+    // Multiverse button click: show GIF then redirect
+    const btn = document.getElementById("multiverseBtn");
+    btn.addEventListener('click', (e)=>{
+        e.preventDefault();
+        const modal = document.getElementById("gifModal");
+        modal.style.display = "flex";
+        setTimeout(()=>{
+            window.location.href = "multiverse.html";
+        }, 2500);
+    });
+});
+</script>
 
 </body>
 </html>
