@@ -1,0 +1,364 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Our Love Across Every Universe 💫❤️</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: radial-gradient(circle at 20% 30%, #1a0033, #000814 60%);
+            overflow-x: hidden;
+            color: white;
+        }
+
+        /* Floating stars background with GIF */
+        .twinkle-stars {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: url('images-multiverse/stars.gif') repeat;
+            background-size: cover;
+            opacity: 0.3;
+            z-index: -2;
+        }
+
+        /* Spiral galaxies */
+        .galaxy {
+            position: fixed;
+            width: 250px;
+            height: 250px;
+            background: url('images-multiverse/galaxy1.png') no-repeat center/contain;
+            opacity: 0.6;
+            filter: drop-shadow(0 0 25px #ff4da6) drop-shadow(0 0 40px #ff66cc);
+            animation: spinGalaxy 200s linear infinite;
+            z-index: -1;
+        }
+        .galaxy:nth-child(2) {
+            left: 70%;
+            top: 10%;
+            width: 300px;
+            height: 300px;
+            animation-duration: 300s;
+            opacity: 0.5;
+        }
+        .galaxy:nth-child(3) {
+            left: 20%;
+            top: 70%;
+            width: 180px;
+            height: 180px;
+            animation-duration: 250s;
+            opacity: 0.55;
+        }
+
+        @keyframes spinGalaxy {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        #header {
+            text-align: center;
+            padding: 40px 0;
+            font-size: 2rem;
+            letter-spacing: 2px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        #header strong {
+            color: #ff4da6;
+        }
+
+        /* 5 Column Grid */
+        #main {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 25px;
+            padding: 40px;
+            animation: fadeIn 2s ease-in-out;
+            position: relative;
+            z-index: 1;
+        }
+
+        .thumb {
+            text-align: center;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .thumb video {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            transition: 0.4s ease;
+            cursor: pointer;
+            object-fit: cover;
+        }
+
+        .thumb video:hover {
+            transform: scale(1.07);
+            box-shadow: 0 0 25px #ff4da6, 0 0 50px #ff4da6;
+        }
+
+        .thumb h2 {
+            margin-top: 12px;
+            font-size: 0.95rem;
+        }
+
+        .video-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.95);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 9999;
+        }
+
+        .video-modal video {
+            max-width: 75%;
+            max-height: 70%;
+            border-radius: 15px;
+        }
+
+        .video-title {
+            margin-top: 20px;
+            font-size: 1.4rem;
+            color: #ff99cc;
+            text-align: center;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 35px;
+            cursor: pointer;
+            color: white;
+        }
+
+        @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+        @keyframes fadeInUp { from {opacity: 0; transform: translateY(20px);} to {opacity: 1; transform: translateY(0);} }
+
+        @media (max-width: 1200px) { #main { grid-template-columns: repeat(3,1fr); } }
+        @media (max-width: 768px) { #main { grid-template-columns: repeat(2,1fr); } }
+        @media (max-width: 500px) { #main { grid-template-columns: repeat(1,1fr); } }
+
+        /* Bottom buttons */
+        .bottom-buttons {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .bottom-buttons a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px 10px;
+            background-color: #6c757d;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1em;
+            border-radius: 25px;
+            transition: background 0.3s ease;
+        }
+        .bottom-buttons a:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Twinkling stars with GIF -->
+<div class="twinkle-stars"></div>
+
+<!-- Spiral Galaxies -->
+<div class="galaxy"></div>
+<div class="galaxy"></div>
+<div class="galaxy"></div>
+
+<div id="header">
+    <strong>Our Love</strong> Across Every Universe 💫
+</div>
+
+<div id="main"></div>
+
+<!-- Video Modal -->
+<div class="video-modal" id="videoModal">
+    <span class="close-btn" onclick="closeVideo()">&times;</span>
+    <video id="modalVideo" controls></video>
+    <div class="video-title" id="videoTitle"></div>
+</div>
+
+<!-- Heartbeat Sound -->
+<audio id="heartbeatSound" src="assets-multiverse/audio/heartbeat.mp3"></audio>
+
+<!-- Bottom Buttons -->
+<div class="bottom-buttons">
+    <a href="valentines-day.html">Back to Valentine’s Day 💖</a>
+    <a href="index.html">Back to Valentine’s Week 💞</a>
+</div>
+
+<script>
+const universes = [
+
+    {
+        name: "Dark World",
+        caption: "In a world where the sun never rises, even shadows are afraid of the dark. 🌑",
+        thumb: "dark_world.mp4",
+        video: "dark_world.mp4"
+    },
+    {
+        name: "The First Smile Universe",
+        caption: "Where it all began 💕",
+        thumb: "kings.mp4",
+        video: "kings.mp4"
+    },
+
+    {
+        name: "Desert Wanderers - Tornedo Apoclypse",
+        caption: "Desert wanderers chase horizons that vanish with every step, guided only by faith and the burning wind 🌵",
+        thumb: "dessert_wanderers.mp4",
+        video: "dessert_wanderers.mp4"
+    },
+    {
+        name: "Krabi Sunset Reality",
+        caption: "Racing to catch the fire show 🔥",
+        thumb: "heaven.mp4",
+        video: "heaven.mp4"
+    },
+    {
+        name: "Krabi Sunset Reality",
+        caption: "Racing to catch the fire show 🔥",
+        thumb: "hell.mp4",
+        video: "hell.mp4"
+    },
+
+    {
+        name: "The First Smile Universe",
+        caption: "Where it all began 💕",
+        thumb: "old.mp4",
+        video: "old.mp4"
+    },
+
+    {
+        name: "The First Smile Universe",
+        caption: "Where it all began 💕",
+        thumb: "old.mp4",
+        video: "old.mp4"
+    },
+
+
+    {
+        name: "The First Smile Universe",
+        caption: "Where it all began 💕",
+        thumb: "underwater.mp4",
+        video: "underwater.mp4"
+    },
+    {
+        name: "The First Smile Universe",
+        caption: "Where it all began 💕",
+        thumb: "loki.mp4",
+        video: "loki.mp4"
+    },
+    {
+        name: "Krabi Sunset Reality",
+        caption: "Racing to catch the fire show 🔥",
+        thumb: "avatar.mp4",
+        video: "avatar.mp4"
+    },
+
+    {
+        name: "The First Smile Universe",
+        caption: "Where it all began 💕",
+        thumb: "richOld.mp4",
+        video: "richOld.mp4"
+    },
+
+    {
+        name: "Hyderabad Destiny",
+        caption: "The city that started our forever 💑",
+        thumb: "caveman.mp4",
+        video: "caveman.mp4"
+    },
+    {
+        name: "The First Smile Universe",
+        caption: "Where it all began 💕",
+        thumb: "ironman.mp4",
+        video: "ironman.mp4"
+    },
+    {
+        name: "Krabi Sunset Reality",
+        caption: "Racing to catch the fire show 🔥",
+        thumb: "romantic.mp4",
+        video: "romantic.mp4"
+    },
+    {
+        name: "The First Smile Universe",
+        caption: "Where it all began 💕",
+        thumb: "fight.mp4",
+        video: "fight.mp4"
+    }, 
+    {
+        name: "Beachside Cottage World",
+        caption: "Where we danced without worries 🌊",
+        thumb: "vampire.mp4",
+        video: "vampire.mp4"
+    },
+    {
+        name: "Beachside Cottage World",
+        caption: "Where we danced without worries 🌊",
+        thumb: "sketch.mp4",
+        video: "sketch.mp4"
+    },
+    {
+        name: "Beachside Cottage World",
+        caption: "Where we danced without worries 🌊",
+        thumb: "snake.mp4",
+        video: "snake.mp4"
+    }
+ 
+
+    // Add up to 25 universes here
+];
+
+const container = document.getElementById("main");
+universes.forEach((u) => {
+    const article = document.createElement("article");
+    article.className = "thumb";
+    article.innerHTML = `
+        <a href="#" onclick="openVideo('images-multiverse/fulls/${u.video}','${u.caption}'); return false;">
+            <video src="images-multiverse/thumbs/${u.thumb}" muted autoplay loop playsinline></video>
+        </a>
+        <h2>${u.name} 🌌</h2>
+    `;
+    container.appendChild(article);
+});
+
+function openVideo(videoSrc, titleText) {
+    const modal = document.getElementById("videoModal");
+    const video = document.getElementById("modalVideo");
+    const title = document.getElementById("videoTitle");
+    const heartbeat = document.getElementById("heartbeatSound");
+    video.src = videoSrc;
+    title.innerText = titleText;
+    modal.style.display = "flex";
+    video.play();
+    heartbeat.play();
+}
+
+function closeVideo() {
+    const modal = document.getElementById("videoModal");
+    const video = document.getElementById("modalVideo");
+    const heartbeat = document.getElementById("heartbeatSound");
+    video.pause();
+    video.src = "";
+    heartbeat.pause();
+    heartbeat.currentTime = 0;
+    modal.style.display = "none";
+}
+</script>
+
+</body>
+</html>
